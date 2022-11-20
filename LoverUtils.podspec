@@ -91,9 +91,10 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
   spec.static_framework = true
-  spec.source_files  = "bin", "bin/**/*.{h,m,swift,framework}"
-  spec.exclude_files = "bin/Exclude"
-  
+  spec.source_files  = "bin/LoverUtils.framework/Headers/**/*.{h,m,swift}"
+  spec.vendored_frameworks = 'bin/LoverUtils.framework'
+#  spec.exclude_files = "bin/Exclude"
+
   spec.pod_target_xcconfig = {
     'DEFINES_MODULE' => 'YES',
     'CLANG_ENABLE_MODULE_DEBUGGING' => 'YES',
@@ -101,7 +102,8 @@ Pod::Spec.new do |spec|
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
     'SWIFT_VERSION' => '5.0',
     'SWIFT_OBJC_INTERFACE_HEADER_NAME' => 'LoverUtils-Swift.h' ,
-    'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES'
+    'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES',
+    'VALID_ARCHS' => 'armv7 arm64'
   }
   # spec.public_header_files = "Classes/**/*.h"
 
