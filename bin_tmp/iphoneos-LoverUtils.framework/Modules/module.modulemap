@@ -1,0 +1,11 @@
+framework module LoverUtils {
+  umbrella header "LoverUtils.h"
+
+  export *
+  module * { export * }
+}
+
+module LoverUtils.Swift {
+  header "LoverUtils-Swift.h"
+  requires objc
+}
